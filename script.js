@@ -1,6 +1,6 @@
 let btnplay = document.querySelector(".btnplay");
 let boxgame = document.querySelector(".boxgame");
-let points = document.querySelectorAll(".boxgame > div");
+let points = Array.from(document.querySelectorAll(".boxgame > div"));
 let Highscore = document.querySelector(".heightscore");
 let Scoredefault = document.querySelector(".scoredefault");
 let Counttime = document.querySelector(".counttime");
@@ -72,7 +72,7 @@ boxgame.addEventListener("click",(event) => {
         sessionStorage.setItem("high",highscore);
         Highscore.innerHTML = `คะแนนสูงสุด : ${highscore}`;
     }
-    const index = Array.from(boxgame.children).indexOf(event.target);
+    const index = points.indexOf(event.target);
     event.target.style.display = "none"
     startspeed[index] = -60;
     pointposition[index] = Math.floor(Math.random() * window.innerWidth - 150) + 150;
